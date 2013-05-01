@@ -50,6 +50,7 @@ add_subdirectory (lib/STM32F3_PeriphLib)
 include_directories("lib/STM32F3_CMSIS/inc")
 include_directories("lib/STM32F3_PeriphLib/inc")
 
+include_directories("inc")
 include_directories("src")
 
 # add source files from folder

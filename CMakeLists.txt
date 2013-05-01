@@ -43,8 +43,8 @@ SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS}  -g")
 SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -g")
 
 # add libs in subdirectory
-add_subdirectory (lib/STM32F3_LIB_CMSIS)
-add_subdirectory (lib/STM32F3_LIB_PeriphLib)
+add_subdirectory (lib/STM32F3_CMSIS)
+add_subdirectory (lib/STM32F3_PeriphLib)
 
 # add -I compile headers for LIBS
 include_directories("lib/STM32F3_CMSIS/inc")
@@ -59,7 +59,8 @@ AUX_SOURCE_DIRECTORY("src/" SRCS)
 #AUX_SOURCE_DIRECTORY("src/util/" SRCSUtil)
 
 # define target
-add_executable(${TARGET}.elf ${SRCS} ${SRCSCalls} ${SRCSPeri} ${SRCSUtil})
-target_link_libraries (${TARGET}.elf STM32F3_LIB_CMSIS STM32F3_LIB_PeriphLib)
+#add_executable(${TARGET}.elf ${SRCS} ${SRCSCalls} ${SRCSPeri} ${SRCSUtil})
+add_executable(${TARGET}.elf ${SRCS})
+target_link_libraries (${TARGET}.elf STM32F3_CMSIS STM32F3_PeriphLib)
 
 make_firmware(${TARGET}.elf)
